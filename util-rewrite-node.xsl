@@ -36,7 +36,7 @@
 	Transform all h tag in div with h tag as class
 
 	<xsl:template match="h1 | h2 | h3 | h4 | h5 | h6" mode="rewrite-node">
-		<div class="name()">
+		<div class="{name()}">
 			<xsl:apply-templates select="@* | node() | text()" mode="rewrite-node"/>
 		</div>
 	</xsl:template> 
