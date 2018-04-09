@@ -30,4 +30,3 @@ Created the url based on the xml context and section name.
 Output a new custom node from an existing one from a set of rules.
 
 ```util-rewrite-node```
-
