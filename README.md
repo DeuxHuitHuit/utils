@@ -26,3 +26,7 @@ Created the url based on the xml context and section name.
 
 ```util-auto-url```
 
+## Rewrite XML recursively with custom rules
+Output a new custom node from an existing one from a set of rules.
+
+```util-rewrite-node```
