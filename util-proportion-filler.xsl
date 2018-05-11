@@ -7,7 +7,7 @@
 
 
 		<!-- COMPUTED ATTRIBUTES -->
-		<xsl:variable name="computed-attr">
+		<xsl:variable name="computed-attr-ctn">
 			<add class="absolute width-full left pointer-events-none" />
 			<add class="js-proportion-filler" />
 			<add dev-component="util-proportion-filler-ctn" />
