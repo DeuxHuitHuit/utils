@@ -40,7 +40,7 @@
 		<add data-sync-property-with="height" />
 		<add data-sync-property-from=".js-proportion-filler" />
 		<xsl:if test="$has-ancestor">
-			<add data-sync-property-from-common-ancestor=".js-module-card-over-media" />
+			<add data-sync-property-from-common-ancestor="{$ancestor}" />
 		</xsl:if>
 	</xsl:template>
 </xsl:stylesheet>
