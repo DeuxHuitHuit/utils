@@ -6,6 +6,11 @@ Add minimal html markup and styles to prevent margins from collapsing.
 
 ```util-uncollapse-margin```
 
+## Proportion filler 
+Creates an element with a fixed ratio which can be used to sync with another element's min-height.  
+
+```util-proportion-filler```
+
 ## Random number 
 Get a random number between a min and max value.  
 
