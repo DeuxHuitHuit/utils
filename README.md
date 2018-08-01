@@ -35,3 +35,8 @@ Created the url based on the xml context and section name.
 Output a new custom node from an existing one from a set of rules.
 
 ```util-rewrite-node```
+
+## Count variable
+Useful to create count something that can be of multiple type. Prevents xsl error when trying to count a string for example.
+
+```util-count```
