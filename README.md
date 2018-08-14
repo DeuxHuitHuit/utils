@@ -24,7 +24,7 @@ Creates a node usable by ```util-auto-url```.
 ## Excerpt
 Create an excerpt from a text.  
 
-```util-button-node```
+```util-excerpt```
 
 ## Generate URL from xml context
 Created the url based on the xml context and section name.  
