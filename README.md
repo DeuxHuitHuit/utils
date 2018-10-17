@@ -40,3 +40,8 @@ Output a new custom node from an existing one from a set of rules.
 Useful to create count something that can be of multiple type. Prevents xsl error when trying to count a string for example.
 
 ```util-count```
+
+## Transition scroll
+Generates necessary attributes for any elements that needs to transition on scroll
+
+```util-transition-scroll```
