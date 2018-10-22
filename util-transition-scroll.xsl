@@ -7,7 +7,7 @@
 		<xsl:param name="state" select="'visible'" />
 		<xsl:param name="screen-offset" select="'1'" />
 
-		<add class="transition-{$name}" />
+		<add class="{$name}" />
 		<add class="js-auto-toggle-class-on-scroll" />
 		<add data-toggle-class-on-scroll-add-after="is-{$state}" />
 		<add data-toggle-class-on-scroll-rem-before="is-{$state}" />
