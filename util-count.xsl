@@ -13,7 +13,7 @@
 				<xsl:value-of select="count($items)" />
 			</xsl:when>
 			<xsl:otherwise>
-				0
+				<xsl:text>0</xsl:text>
 			</xsl:otherwise>
 		</xsl:choose>
 	</xsl:template>
