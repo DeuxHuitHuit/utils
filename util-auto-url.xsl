@@ -1,55 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
-<xsl:template name="util-auto-url">
-	<xsl:choose>
+	<xsl:template match="*" name="util-auto-url" mode="util-auto-url">
 
-		<xsl:when test="count(page/page) &gt; 0">
-			<xsl:variable name="page-id" select="page/page/@id" />
-			<xsl:call-template name="create-page-url-by-id">
-				<xsl:with-param name="id" select="$page-id"/>
-			</xsl:call-template>
-		</xsl:when>
+		<xsl:choose>
 
-		<xsl:when test="count(entry/item) &gt; 0">
-			<xsl:apply-templates select="entry/item" mode="auto-url" />
-		</xsl:when>
+			<!-- Absolute url -->
+			<xsl:when test="string-length(url) != 0">
+				<xsl:value-of select="url" />
+			</xsl:when>
 
-		<xsl:when test="@section = 'section-name' or ../section/@handle = 'section-name'">
-			<xsl:value-of select="$page-name-url" />
-			<xsl:value-of select="title/@handle" />
-			<xsl:text>/</xsl:text>
-		</xsl:when>
+			<!-- Symphony page trough page-select-box -->
+			<xsl:when test="count(page/page) &gt; 0">
+				<xsl:call-template name="create-page-url-by-id">
+					<xsl:with-param name="id" select="page/page/@id"/>
+				</xsl:call-template>
+			</xsl:when>
 
-		<xsl:when test="string-length(url) != 0">
-			<xsl:value-of select="url" />
-		</xsl:when>
+			<!-- Entry from section -->
+			<xsl:when test="@section = 'my-section-name' or ../section/@handle = 'my-section-name'">
+				<xsl:value-of select="$page-index-url" />
+				<xsl:value-of select="slug/@handle" />
+				<xsl:text>/</xsl:text>
+			</xsl:when>
 
-	</xsl:choose>
-</xsl:template>
+			<!-- Files -->
+			<xsl:when test="item[@section = 'files'] or ../section/@handle = 'files'">
+				<xsl:value-of select="$workspace" />
+				<xsl:value-of select="files/@path" />
+				<xsl:text>/</xsl:text>
+				<xsl:value-of select="files/filename" />
+			</xsl:when>
 
+			<xsl:when test="count(entry/item)">
+				<xsl:apply-templates select="entry/item" mode="util-auto-url" />
+			</xsl:when>
 
-<!-- Entry -->
-<xsl:template match="item[@section = 'section-name']" mode="auto-url">
-	<xsl:value-of select="$page-name-url" />
-	<xsl:value-of select="name/@handle" />
-	<xsl:text>/</xsl:text>
-</xsl:template>
-<xsl:template match="item[@section = 'section-name']" mode="auto-page-id">
-	<xsl:value-of select="$page-name-id" />
-</xsl:template>
+		</xsl:choose>
 
-
-<!-- FILE URL -->
-<xsl:template match="item[@section = 'files']" mode="auto-url">
-	<xsl:value-of select="concat($workspace, '/uploads/files/', file/filename)" />
-</xsl:template>
-
-
-<!-- AUTO HANDLE -->
-<!-- default auto-handle that will be used for all that the handle is title
-	Template is overidden when necessary-->
-<xsl:template match="item" mode="auto-handle">
-</xsl:template>
+	</xsl:template>
 
 </xsl:stylesheet>

@@ -45,3 +45,8 @@ Useful to create count something that can be of multiple type. Prevents xsl erro
 Generates necessary attributes for any elements that needs to transition on scroll
 
 ```util-transition-scroll```
+
+## Absolute image path
+Returns an absolute image path from an image node created from an image-upload field.
+
+```util-image-path```
