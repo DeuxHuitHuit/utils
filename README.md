@@ -22,7 +22,7 @@ Creates a node usable by ```util-auto-url```.
 ```util-button-node```
 
 ## Excerpt
-Create an excerpt from a text.  
+Create an excerpt from a text by adding a max word count. 
 
 ```util-excerpt```
 
